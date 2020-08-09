@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+
+<?php
+
+if (count($argv) < 2) {
+    die("\e[0;31mUsage: dumpDeps Owner \n");
+}
+
+$search = $argv[1];
+$search = $search . ".php";
+$search = preg_quote($search);
+$search = $search . "$";
+$search = str_replace("/", "\/", $search);
+
+$res = shell_exec(getcwd() . "/bin/tools/vendor/phpstan/phpstan/phpstan dump-deps app");
+$res = json_decode($res, true);
+
+foreach ($res as $class => $dependencies) {
+    if (preg_match("/$search/", $class)) {
+        echo "\n";
+        echo "\n";
+        echo count($dependencies) . " Classes depend on " . "\e[0;32m" . $class . "\e[0m\n";
+        echo "\n";
+        foreach ($dependencies as $dependency) {
+            echo "\t >> \t \e[0;34m" . $dependency . "\e[0m\n";
+        }
+    }
+}
