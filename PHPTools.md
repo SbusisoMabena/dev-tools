@@ -7,3 +7,4 @@
 5. PHPMetrics
 6. Psalm
 7. Xdebug
+8. Codeception
