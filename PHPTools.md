@@ -8,3 +8,7 @@
 6. Psalm
 7. Xdebug
 8. Codeception
+
+## A repo full of good tools
+
+<https://github.com/ziadoz/awesome-php>
