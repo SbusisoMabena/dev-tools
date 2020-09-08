@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpstan/phpstan": "^0.12.36"
+        "phpstan/phpstan": "^0.12.36",
+        "symfony/console": "^5.1"
     }
 }
